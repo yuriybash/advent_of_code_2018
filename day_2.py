@@ -22,3 +22,14 @@ for l in content:
     if 3 in count.values():
         threes+=1
 print "solution to part 2: ", twos*threes
+
+def hamming(s1, s2):
+    """Calculate the Hamming distance between two bit strings"""
+    assert len(s1) == len(s2)
+    return sum(c1 != c2 for c1, c2 in zip(s1, s2))
+
+for idx, val in enumerate(content):
+    for val2 in content[idx+1:]:
+        if hamming(val, val2) == 1:
+            print val
+            print val2
